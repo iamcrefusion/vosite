@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Manrope", "Avenir Next", Avenir, sans-serif;
   line-height: 1.65;
@@ -342,20 +346,33 @@ audio::-webkit-media-controls-time-remaining-display {
   border-color: rgba(121, 200, 255, 0.42);
 }
 
-.bmo-gif {
+.bmo-link {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 10;
+  display: block;
   width: 58px;
   height: 58px;
+}
+
+.bmo-gif {
+  display: block;
+  width: 100%;
+  height: 100%;
   opacity: 0.7;
   transition: opacity 180ms ease, transform 180ms ease;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
-.bmo-gif:hover {
+.bmo-link:hover .bmo-gif {
   opacity: 1;
   transform: scale(1.06);
+}
+
+.bmo-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 footer {
@@ -462,7 +479,7 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .bmo-gif {
+  .bmo-link {
     width: 46px;
     height: 46px;
     right: 12px;
